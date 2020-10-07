@@ -1,33 +1,153 @@
 @extends('layouts.app')
 @section('title','Contact Us')
 @section('content')
-<!-- One -->
-	<section id="One" class="wrapper style3">
-		<div class="inner">
-			<header class="align-center">
-				<p>Eleifend vitae urna</p>
-				<h2>Generic Page Template</h2>
-			</header>
-		</div>
-	</section>
+ <!-- Start main-content -->
+  <div class="main-content">
 
-<!-- Two -->
-	<section id="two" class="wrapper style2">
-		<div class="inner">
-			<div class="box">
-				<div class="content">
-					<header class="align-center">
-						<p>maecenas sapien feugiat ex purus</p>
-						<h2>Lorem ipsum dolor</h2>
-					</header>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at dignissim augue, in iaculis neque. Etiam bibendum felis ac vulputate pellentesque. Cras non blandit quam. Nunc porta, est non posuere sagittis, neque nunc pellentesque diam, a iaculis lacus urna vitae purus. In non dui vel est tempor faucibus. Aliquam erat volutpat. Quisque vel est vitae nibh laoreet auctor. In nec libero dui. Nulla ullamcorper, dolor nec accumsan viverra, libero eros rutrum metus, vel lacinia magna odio non nunc. Praesent semper felis eu rhoncus aliquam. Donec at quam ac libero vestibulum pretium. Nunc faucibus vel arcu in malesuada. Aenean at velit odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas commodo erat eget molestie sollicitudin. Donec imperdiet, ex sed blandit dictum, ipsum metus ultrices arcu, vitae euismod nisl sapien vitae tortor.</p>
+    <!-- Section: inner-header -->
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1280">
+      <div class="container pt-70 pb-20">
+        <!-- Section Content -->
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="title text-white">Contact</h2>
+              <ol class="breadcrumb text-left text-black mt-10">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li class="active text-gray-silver">Page Title</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-					<p>Vivamus nec odio ac ligula congue feugiat at vitae leo. Aenean sem justo, finibus sed dui eu, accumsan facilisis dolor. Fusce quis dui eget odio iaculis aliquam vel sed velit. Nulla pellentesque posuere semper. Nulla eu sagittis lorem, a auctor nulla. Sed ac condimentum orci, ac varius ante. Nunc blandit quam sit amet sollicitudin sodales.</p>
+    <!-- Divider: Contact -->
+    <section class="divider">
+      <div class="container pt-0">
+        <div class="row mb-60 bg-deep">
+          <div class="col-sm-12 col-md-4">
+            <div class="contact-info text-center pt-60 pb-60 border-right">
+              <i class="fa fa-phone font-36 mb-10 text-theme-colored"></i>
+              <h4>Call Us</h4>
+              <h6 class="text-gray">Phone: +262 695 2601</h6>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <div class="contact-info text-center  pt-60 pb-60 border-right">
+              <i class="fa fa-map-marker font-36 mb-10 text-theme-colored"></i>
+              <h4>Address</h4>
+              <h6 class="text-gray">121 King Street, Australia</h6>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <div class="contact-info text-center  pt-60 pb-60">
+              <i class="fa fa-envelope font-36 mb-10 text-theme-colored"></i>
+              <h4>Email</h4>
+              <h6 class="text-gray">you@yourdomain.com</h6>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-10">
+          <div class="col-md-5">
+          <h4 class="mt-0 mb-30 line-bottom">Find Our Location</h4>
+          <!-- Google Map HTML Codes -->
+          <div 
+            data-address="121 King Street, Melbourne Victoria 3000 Australia"
+            data-popupstring-id="#popupstring1"
+            class="map-canvas autoload-map"
+            data-mapstyle="style8"
+            data-height="420"
+            data-latlng="-37.817314,144.955431"
+            data-title="sample title"
+            data-zoom="12"
+            data-marker="images/map-marker.png">
+          </div>
+          <div class="map-popupstring hidden" id="popupstring1">
+            <div class="text-center">
+              <h3>CharityFund Office</h3>
+              <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+            </div>
+          </div>
+          <!-- Google Map Javascript Codes -->
+          <script src="http://maps.google.com/maps/api/js"></script>
+          <script src="js/google-map-init.js"></script>
+          </div>
+          <div class="col-md-7">
+            <h4 class="mt-0 mb-30 line-bottom">Interested in discussing?</h4>
+            <!-- Contact Form -->
+            <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
 
-					<p>Vivamus ultricies mollis mauris quis molestie. Quisque eu mi velit. In et cursus nibh. Donec facilisis, orci sed mollis hendrerit, nunc risus mattis odio, eget efficitur nisl orci a lectus. Aenean finibus neque convallis orci sollicitudin tincidunt. Vivamus lacinia facilisis diam, quis facilisis nisi luctus nec. Aliquam ac molestie enim, ut ultrices elit. Fusce laoreet vulputate risus in tincidunt. Sed commodo mollis maximus. Nullam varius laoreet nibh sit amet facilisis. Donec ac odio vehicula, consequat elit et, sodales justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ac auctor mauris, in hendrerit libero. </p>
-				</div>
-			</div>
-		</div>
-	</section>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="form_name">Name <small>*</small></label>
+                    <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Email <small>*</small></label>
+                    <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                  </div>
+                </div>
+              </div>                
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="form_name">Subject <small>*</small></label>
+                    <input name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="form_phone">Phone</label>
+                    <input name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form_name">Message</label>
+                <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input name="form_botcheck" class="form-control" type="hidden" value="" />
+                <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
+                <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
+              </div>
+            </form>
+
+            <!-- Contact Form Validation-->
+            <script type="text/javascript">
+              $("#contact_form").validate({
+                submitHandler: function(form) {
+                  var form_btn = $(form).find('button[type="submit"]');
+                  var form_result_div = '#form-result';
+                  $(form_result_div).remove();
+                  form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+                  var form_btn_old_msg = form_btn.html();
+                  form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
+                  $(form).ajaxSubmit({
+                    dataType:  'json',
+                    success: function(data) {
+                      if( data.status == 'true' ) {
+                        $(form).find('.form-control').val('');
+                      }
+                      form_btn.prop('disabled', false).html(form_btn_old_msg);
+                      $(form_result_div).html(data.message).fadeIn('slow');
+                      setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+                    }
+                  });
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- end main-content -->
 @endsection	
 

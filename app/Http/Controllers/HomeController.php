@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Models\Teacher;
 
 class HomeController extends Controller
 {
     //
     public function index()
     {
-    	return view('index');
+        # all::  to get all data from table
+        $arrCourses = Course::all();
+        $arrTeachers = Teacher::all();
+          
+    	return view('index',compact('arrCourses','arrTeachers'));
     }
 
     public function AboutUs()

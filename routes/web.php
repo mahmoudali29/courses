@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,34 +21,9 @@ Route::get('/','App\Http\Controllers\HomeController@index')->name('Home');
 Route::get('/about-us','App\Http\Controllers\HomeController@AboutUs')->name('aboutus');
 Route::get('/contact-us','App\Http\Controllers\HomeController@ContactUs')->name('contactus');
 
-
-
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-// this mean paramater id is required
-Route::get('/user/{id}', function ($id=null) {
-    return $id;
-})->where('id', '[0-9]+');
-
-// this mean paramater name is not required
-Route::get('/product/{name?}', function ($name=null) {
-    return $name;
-});
-
-Route::get('/user/profile', function () {
-    echo "your profile here";
-})->name('profile');
-
-// Route::get('/course_details/{course_id}/{course_name?}','App\Http\Controllers\HomeController@CourseDetails')->name('CourseDetails')->where('course_id', '[0-9]+');
-
-
-// Route::get('/course_details/{course_id}/{course_name?}','App\Http\Controllers\HomeController@CourseDetails')->where('course_id', '[0-9]+')->name('CourseDetails');
-
-
-
-
-
+Route::get('/admin','App\Http\Controllers\AdminController@Dashboard');
+Route::get('/admin/dashboard','App\Http\Controllers\AdminController@Dashboard');
+//================== Course Moduel ==========================//
+Route::resource('admin/courses', CourseController::class);
+ 
 

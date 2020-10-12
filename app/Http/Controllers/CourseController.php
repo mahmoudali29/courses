@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Course;
 use Redirect;
+use Validator;
+use App\Http\Requests\StoreCourses;
 class CourseController extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class CourseController extends Controller
     public function index()
     {
         //
-       return view('courses.index');
+       $arrCourses =  Course::all();
+       return view('courses.index',compact('arrCourses'));
     }
 
     /**
@@ -35,8 +38,43 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCourses $request)
     {
+
+        // $rules = $request->validate([
+        //     'name' => 'required|unique:courses|max:255',
+        //     'price' => 'required',
+        // ]);
+
+        // $rules = [
+        //     'name' => 'required|unique:courses|max:255',
+        //     'price' => 'required|integer',
+        //     'description' => 'required',
+        // ];
+
+        // if($request->hasFile('image')){
+        //     $rules['image']= 'mimes:jpeg,bmp,png';
+        // }
+
+         
+
+
+        // $messages = [
+        //     'name.required' => 'Please Enter Name',
+        //     'name.unique' => 'Please choose diffrent name',
+        //     'price.required' => 'Please Enter Price',
+        // ];
+
+        // $input = $request->all();
+
+         
+        // $validator = Validator::make($input, $rules, $messages);
+
+        // if ($validator->fails()) {
+        //     return Redirect::back()
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
         
         // use query builder
         /*DB::table('courses')->insert(
@@ -48,7 +86,7 @@ class CourseController extends Controller
         );
         */
 
-        // Course::create($request->all());
+        //Course::create($request->all());
 
         // user Eloquent
         $objCourse = new Course();
@@ -57,15 +95,21 @@ class CourseController extends Controller
         $objCourse->description = $request->description;
 
         # upload image 
-        $image = $request->image;
-        $image_name = time().".".$image->getClientOriginalExtension();
-        $destination = "images/courses";
-        $image->move($destination,$image_name);
-        
-        $objCourse->image = "public/".$destination.$image_name;
+        $image = "";
+        #  validate if image upload or not 
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $image_name = time().".".$image->getClientOriginalExtension();
+            $destination = "images/courses";
+            $image->move($destination,$image_name);
+            $objCourse->image = $destination."/".$image_name;
+        }
+
         $objCourse->save();
 
-        return Redirect::back();
+        //$request->session()->flash('sucessMSG','Course Added Succesfully');
+
+        return Redirect::back()->with('sucessMSG', 'Course Added Succesfully !');
 
 
 
@@ -81,7 +125,8 @@ class CourseController extends Controller
     public function show($id)
     {
         //
-        print_r('we will show this id : ' . $id);
+        $objCourse = Course::findOrFail($id);
+        return view('courses.show',compact('objCourse'));
     }
 
     /**
@@ -93,7 +138,8 @@ class CourseController extends Controller
     public function edit($id)
     {
         //
-        print_r('we will edit this id : ' . $id);
+        $objCourse = Course::findOrFail($id);
+        return view('courses.edit',compact('objCourse'));
     }
 
     /**
@@ -103,9 +149,31 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCourses $request, $id)
     {
         //
+        $objCourse = Course::findOrFail($id);
+
+        $objCourse->name = $request->name;
+        $objCourse->price = $request->price;
+        $objCourse->description = $request->description;
+
+        # upload image 
+        $image = "";
+        #  validate if image upload or not 
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $image_name = time().".".$image->getClientOriginalExtension();
+            $destination = "images/courses";
+            $image->move($destination,$image_name);
+            $objCourse->image = $destination."/".$image_name;
+        }
+
+        $objCourse->save();
+
+        return Redirect::back()->with('sucessMSG', 'Course Updated Succesfully !');
+
+         
     }
 
     /**
@@ -117,5 +185,7 @@ class CourseController extends Controller
     public function destroy($id)
     {
         //
+        Course::findOrFail($id)->delete();
+        return Redirect::back()->with('sucessMSG', 'Course Deleted Succesfully !');
     }
 }

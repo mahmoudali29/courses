@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
-@section('title','Show Courses')
+@section('title','Show Slider')
 @section('content')
  
         
@@ -22,24 +22,24 @@
           @endif --}}
 
 
-        	<form action="{{ url('admin/courses') }}/{{ $objCourse->id }}" method="post" enctype="multipart/form-data">
+        	<form action="{{ url('admin/sliders') }}/{{ $objSlider->id }}" method="post" enctype="multipart/form-data">
                 @method('patch')
                 @csrf
                 <div class="form-group">
-                  <label for="name">Course Name</label>
-                  <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"  placeholder="Enter Course Name" value="{{ $objCourse->name }}" readonly>
+                  <label for="Title1">Title1</label>
+                  <input type="text" class="form-control @error('title1') is-invalid @enderror" id="title1" name="title1"  placeholder="Enter title1" value="{{ $objSlider->title1 }}" readonly>
 
-                  @error('name')
+                  @error('title1')
                     <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                    
                 </div>
 
                 <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price"  placeholder="Enter Course Price" value="{{ $objCourse->price }}" readonly>
+                  <label for="price">Title2</label>
+                  <input type="text" class="form-control @error('title2') is-invalid @enderror" id="title2" name="title2"  placeholder="Enter title2" value="{{ $objSlider->title2 }}" readonly>
 
-                  @error('price')
+                  @error('title2')
                     <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
 
@@ -47,14 +47,14 @@
 
                 <div class="form-group">
                   <label for="price">Description</label>
-                  <textarea  readonly class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ $objCourse->description }}</textarea>
+                  <textarea  readonly class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ $objSlider->description }}</textarea>
 
                   @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                 </div>
 
-                <img style="width: 100px;height: 100px;" src="{{ url('') }}/{{ $objCourse->image }}">
+                <img style="width: 100px;height: 100px;" src="{{ url('') }}/{{ $objSlider->image }}">
                 
              
                 

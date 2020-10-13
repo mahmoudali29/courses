@@ -1,4 +1,5 @@
 @extends('layouts.admin_app')
+@section('title','Show Courses')
 @section('content')
  
 

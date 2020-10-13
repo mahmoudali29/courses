@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
-@section('title','Create Course')
+@section('title','Create SLider')
 @section('content')
  
         
@@ -10,35 +10,23 @@
             </div>
           @endif
 
-
-         {{--  @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-          @endif --}}
-
-
-        	<form action="{{ url('admin/courses') }}" method="post" enctype="multipart/form-data">
+        	<form action="{{ url('admin/sliders') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                  <label for="name">Course Name</label>
-                  <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"  placeholder="Enter Course Name" value="{{ old('name') }}">
+                  <label for="title1">Title1</label>
+                  <input type="text" class="form-control @error('title1') is-invalid @enderror" id="title1" name="title1"  placeholder="Enter Title1" value="{{ old('title1') }}">
 
-                  @error('name')
+                  @error('title1')
                     <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                    
                 </div>
 
                 <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price"  placeholder="Enter Course Price" value="{{ old('price') }}">
+                  <label for="title2">Title2</label>
+                  <input type="text" class="form-control @error('title2') is-invalid @enderror" id="title2" name="title2"  placeholder="Enter Title2" value="{{ old('title2') }}">
 
-                  @error('price')
+                  @error('title2')
                     <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
 

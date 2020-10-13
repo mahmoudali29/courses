@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Teacher;
+use App\Models\Slider;
 
 class HomeController extends Controller
 {
@@ -14,8 +15,9 @@ class HomeController extends Controller
         # all::  to get all data from table
         $arrCourses = Course::all();
         $arrTeachers = Teacher::all();
+        $arrSliders = Slider::all();
           
-    	return view('index',compact('arrCourses','arrTeachers'));
+    	return view('index',compact('arrCourses','arrTeachers','arrSliders'));
     }
 
     public function AboutUs()

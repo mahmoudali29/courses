@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SliderController;
+
 use App\Http\Controllers\AdminController;
 
 
@@ -25,5 +27,7 @@ Route::get('/admin','App\Http\Controllers\AdminController@Dashboard');
 Route::get('/admin/dashboard','App\Http\Controllers\AdminController@Dashboard');
 //================== Course Moduel ==========================//
 Route::resource('admin/courses', CourseController::class);
+Route::resource('admin/sliders', SliderController::class);
+
  
 

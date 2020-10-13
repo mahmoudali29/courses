@@ -9,25 +9,32 @@
     @include('slider')
     
 
+
     <!-- Divider: Call To Action -->
     <section class="bg-theme-colored">
       <div class="container pt-10 pb-20">
         <div class="row">
           <div class="call-to-action">
+            @if (session('sucessMSG'))
+            <div class="alert alert-success">
+                {{ session('sucessMSG') }}
+            </div>
+          @endif
             <!-- Reservation Form Start-->
-            <form id="reservation_form" name="reservation_form" class="reservation-form mb-0" method="post" action="includes/reservation.php">
+            <form id="reservation_formm" name="reservation_form" class="reservation-form mb-0" method="post" action="{{ url('register') }}">
+              @csrf
               <div class="col-md-12">
                 <h3 class="text-white mt-0 mb-10">Get A Free<span class="text-theme-color-2"> Registration</span>!</h3>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="form-group mb-15">
-                  <input name="reservation_email" class="form-control required email" type="email" placeholder="Enter Email">
+                  <input name="email" class="form-control required email" type="email" placeholder="Enter Email">
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="form-group mb-15">
                   <div class="styled-select">
-                    <select id="car_select" name="car_select" class="form-control" required="">
+                    <select id="course_id" name="course_id" class="form-control" required="">
                       <option value="">- Select Courses -</option>
                       
                       @foreach($arrCourses as $objCourse)
@@ -41,12 +48,12 @@
               </div>
               <div class="col-xs-12 col-sm-6 col-md-2">
                 <div class="form-group mb-15">
-                  <input placeholder="Phone" type="text" id="reservation_phone" name="reservation_phone" class="form-control" required="">
+                  <input placeholder="Phone" type="text" id="phone" name="phone" class="form-control" required="">
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-2">
                 <div class="form-group mb-15">
-                  <input name="reservation_date" class="form-control required date-picker" type="text" placeholder="Date Of Birth" aria-required="true">
+                  <input name="dateofbirth" class="form-control required date-picker" type="text" placeholder="Date Of Birth" aria-required="true">
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-2">

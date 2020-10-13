@@ -22,6 +22,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/','App\Http\Controllers\HomeController@index')->name('Home');
 Route::get('/about-us','App\Http\Controllers\HomeController@AboutUs')->name('aboutus');
 Route::get('/contact-us','App\Http\Controllers\HomeController@ContactUs')->name('contactus');
+Route::post('/register','App\Http\Controllers\HomeController@Register')->name('register');
 
 Route::get('/admin','App\Http\Controllers\AdminController@Dashboard');
 Route::get('/admin/dashboard','App\Http\Controllers\AdminController@Dashboard');

@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Teacher;
 use App\Models\Slider;
-
+use App\Models\Registration;
+use Redirect;
 class HomeController extends Controller
 {
     //
@@ -30,14 +31,16 @@ class HomeController extends Controller
         return view('contact');
     }
 
-    
-
-    
-
     public function CourseDetails ($course_id,$course_name=''){
 
         $course_description = "<script>alert('you are hacked')</script>";
 
         return view('course_details',compact('course_id','course_name','course_description'));
+    }
+
+    public function Register(request $request)
+    {
+        Registration::create($request->all());
+        return Redirect::back()->with('sucessMSG', 'Email Added Succesfully !');
     }
 }
